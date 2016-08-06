@@ -1,6 +1,6 @@
 {
   "name": "single-file-worker",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "This helps to make library that uses WebWorker/fork as one simple file.",
   "main": "single-file-worker.js",
   "devDependencies": {
