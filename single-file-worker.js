@@ -12,11 +12,11 @@ var SingleFileWorker = {
     };
   },
 
-  fork: function(workerCode, clientRoutine, filename) {
-    if (SingleFileWorker.isMainProcess()) { // fork main process / webworker browser process
+  fork: function(workerRoutine, clientRoutine, filename) {
+    if (SingleFileWorker.isMainProcess()) { // fork main process
       clientRoutine(SingleFileWorker.makeForkWorkerMaker(filename));
     } else { // fork child process
-      SingleFileWorker.runWorker(workerCode);
+      SingleFileWorker.runWorker(workerRoutine);
     }
   },
 
@@ -27,8 +27,8 @@ var SingleFileWorker = {
     };
   },
 
-  runWorker: function(workerCode) {
-    eval(workerCode);
+  runWorker: function(workerRoutine) {
+    workerRoutine();
   },
 
   isMainProcess: function() {

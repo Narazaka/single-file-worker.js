@@ -32,7 +32,10 @@ bower install single-file-worker
 fork (node.js / electron / nw.js):
 ```javascript
 var SingleFileWorker = require('single-file-worker');
-var workerCode = "process.on('message', function(message) {process.send(message + 1)});";
+
+function workerRoutine() {
+  process.on('message', function(message) {process.send(message + 1)});
+}
 
 function clientRoutine(workerMaker) {
   var worker = workerMaker();
@@ -42,7 +45,7 @@ function clientRoutine(workerMaker) {
   worker.send(1);
 }
 
-SingleFileWorker.fork(workerCode, clientRoutine, SingleFileWorker.scriptFilenameFromError(new Error()));
+SingleFileWorker.fork(workerRoutine, clientRoutine, SingleFileWorker.scriptFilenameFromError(new Error()));
 ```
 
 WebWorker (browsers / electron / nw.js):

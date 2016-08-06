@@ -1,6 +1,9 @@
 if (typeof require !== 'undefined') {
   var SingleFileWorker = require('../../single-file-worker.js');
-  var workerCode = "process.on('message', function(message) {process.send(message + 1)});";
+
+  function workerRoutine() {
+    process.on('message', function(message) {process.send(message + 1)});
+  }
 
   function clientRoutine(workerMaker) {
     module.exports = function() {
@@ -14,5 +17,5 @@ if (typeof require !== 'undefined') {
     }
   }
 
-  SingleFileWorker.fork(workerCode, clientRoutine, SingleFileWorker.scriptFilenameFromError(new Error()));
+  SingleFileWorker.fork(workerRoutine, clientRoutine, SingleFileWorker.scriptFilenameFromError(new Error()));
 }
