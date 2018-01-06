@@ -1,5 +1,7 @@
 # [single-file-worker.js](https://github.com/Narazaka/single-file-worker.js)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Narazaka/single-file-worker.js.svg)](https://greenkeeper.io/)
+
 [![npm](https://img.shields.io/npm/v/single-file-worker.svg)](https://www.npmjs.com/package/single-file-worker)
 [![npm license](https://img.shields.io/npm/l/single-file-worker.svg)](https://www.npmjs.com/package/single-file-worker)
 [![npm download total](https://img.shields.io/npm/dt/single-file-worker.svg)](https://www.npmjs.com/package/single-file-worker)
